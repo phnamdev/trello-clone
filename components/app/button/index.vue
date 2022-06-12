@@ -1,10 +1,10 @@
 <template>
   <button :class="buttonClass" @click="onClick">
-    <span class="prepend">
+    <span v-if="visiblePrepend" class="prepend">
       <slot name="prepend" />
     </span>
     <slot />
-    <span class="append">
+    <span v-if="visibleAppend" class="append">
       <slot name="append" />
     </span>
   </button>
@@ -29,6 +29,14 @@ export default {
         '-rounded': this.rounded,
         '-block': this.block,
       }
+    },
+
+    visiblePrepend() {
+      return this.$slots.prepend?.length > 0
+    },
+
+    visibleAppend() {
+      return this.$slots.append?.length > 0
     },
   },
 
