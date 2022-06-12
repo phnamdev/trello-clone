@@ -11,6 +11,7 @@ export default {
 <style lang="scss">
 .app-sidebar {
   width: 260px;
+  background-color: #b0782d;
 
   &.-collapsed {
     width: 16px;
