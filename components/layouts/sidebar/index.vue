@@ -1,10 +1,18 @@
 <template>
-  <aside class="app-sidebar">Sidebar</aside>
+  <aside :class="['app-sidebar', { '-collapsed': !isExpand }]">
+    <workspace name="eFarm" :is-expand.sync="isExpand" />
+  </aside>
 </template>
 
 <script>
 export default {
   name: 'LayoutSidebar',
+
+  data() {
+    return {
+      isExpand: true,
+    }
+  },
 }
 </script>
 
@@ -15,6 +23,8 @@ export default {
 
   &.-collapsed {
     width: 16px;
+    padding: 0;
+    background-color: rgba(255, 255, 255, 0.16);
   }
 }
 </style>
